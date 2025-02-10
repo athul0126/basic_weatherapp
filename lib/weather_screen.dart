@@ -27,17 +27,18 @@ class WeatherScreen extends StatelessWidget {
       ),
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(14.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //main card
             SizedBox(
               width: double.infinity,
               child: Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(16))
-                ),
+                    borderRadius: BorderRadius.all(Radius.circular(16))),
                 child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
                   child: BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                     child: Padding(
@@ -57,7 +58,7 @@ class WeatherScreen extends StatelessWidget {
                             Icons.cloud,
                             size: 65,
                           ),
-                           SizedBox(
+                          SizedBox(
                             height: 15,
                           ),
                           Text(
@@ -70,7 +71,18 @@ class WeatherScreen extends StatelessWidget {
                   ),
                 ),
               ),
-            )
+            ),
+            SizedBox(height: 15,),
+            //listing card
+            Text(
+              "Weather Forecast",
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 15,),
+            Card()
           ],
         ),
       )),
