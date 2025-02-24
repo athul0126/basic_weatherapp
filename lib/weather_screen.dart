@@ -111,7 +111,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                 child: Column(
                                   children: [
                                     Text(
-                                      '$tempInDegree C',
+                                      '$tempInDegree °C',
                                       style: TextStyle(
                                         fontSize: 32,
                                       ),
@@ -169,7 +169,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                   ? Icons.cloud
                                   : Icons.sunny,
                               temperature:
-                                  '${(hourlyForecast['main']['temp']-273.15).toStringAsFixed(1)} C',
+                                  '${(hourlyForecast['main']['temp']-273.15).toStringAsFixed(1)} °C',
                               time:DateFormat.j().format(time),
                             );
                           },
