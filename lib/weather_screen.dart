@@ -17,7 +17,7 @@ class WeatherScreen extends StatefulWidget {
 class _WeatherScreenState extends State<WeatherScreen> {
   final baseURL = "https://api.openweathermap.org/data/2.5/";
 
-  final city = "Trivandrum";
+  final city = "Kozhikode";
 
   final apiKey = "8d5e8067681393cccb6b80f007b9e590";
 
@@ -46,7 +46,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Weather App",
+          city,
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),
@@ -89,6 +89,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                 final pressure = currentWeatherData['main']['pressure'];
                 final humidity = currentWeatherData['main']['humidity'];
                 final windSpeed = currentWeatherData['wind']['speed'];
+                final tempInDegree = (currentTemprature-273.15).toStringAsFixed(1);
                 return Padding(
                   padding: const EdgeInsets.all(14.0),
                   child: Column(
@@ -110,7 +111,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                 child: Column(
                                   children: [
                                     Text(
-                                      '$currentTemprature K',
+                                      '$tempInDegree C',
                                       style: TextStyle(
                                         fontSize: 32,
                                       ),
@@ -168,7 +169,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                   ? Icons.cloud
                                   : Icons.sunny,
                               temperature:
-                                  '${hourlyForecast['main']['temp']} K',
+                                  '${(hourlyForecast['main']['temp']-273.15).toStringAsFixed(1)} C',
                               time:DateFormat.j().format(time),
                             );
                           },
